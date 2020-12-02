@@ -3,6 +3,7 @@ import dao.entity.XxlJobInfo;
 import dao.repository.XxlJobInfoRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.runner.RunWith;
+import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.cache.annotation.Cacheable;
@@ -27,12 +28,18 @@ public class Test {
 
     @Autowired
     private XxlJobInfoRepository xxlJobInfoRepository;
-    
-    /**
-     * 预销账金额报表数据>>FTP
-     */
+
+    @Autowired
+    private RabbitTemplate rabbitTemplate;
+
     @org.junit.Test
     public void  Test() throws Exception {
         List<XxlJobInfo> all = xxlJobInfoRepository.findAll();
+    }
+
+    @org.junit.Test
+    public void sendMsg(){
+        String text = "数九寒冬";
+        rabbitTemplate.convertAndSend("amq.direct","chenhuadong.test",text);
     }
 }
