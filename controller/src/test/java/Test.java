@@ -39,7 +39,7 @@ public class Test {
 
     @org.junit.Test
     public void sendMsg(){
-        String text = "数九寒冬";
+        String text = "成都";
         rabbitTemplate.convertAndSend("amq.direct","chenhuadong.test",text);
     }
 }

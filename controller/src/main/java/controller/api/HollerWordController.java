@@ -1,4 +1,4 @@
-package controller;
+package controller.api;
 
 import com.chd.stater.MySpringBootStarter;
 import com.chd.stater.MySpringBootStarterConfiguration;
