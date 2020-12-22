@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="dao.mapper.XxlJobInfoMapper">
+
+    <!-- 旧列表查询map映射 -->
+    <resultMap id="XxlJobInfo" type="dao.entity.XxlJobInfo" >
+        <result column="id" property="id" />
+        <result column="job_group" property="jobGroup" />
+        <result column="job_cron" property="jobCron" />
+        <result column="job_desc" property="jobDesc" />
+        <result column="add_time" property="addTime" />
+        <result column="update_time" property="updateTime" />
+        <result column="author" property="author" />
+        <result column="alarm_email" property="alarmEmail" />
+        <result column="executor_route_strategy" property="executorRouteStrategy" />
+        <result column="executor_handler" property="executorHandler" />
+        <result column="executor_param" property="executorParam" />
+        <result column="executor_block_strategy" property="executorBlockStrategy" />
+        <result column="executor_timeout" property="executorTimeout" />
+        <result column="executor_fail_retry_count" property="executorFailRetryCount" />
+        <result column="glue_type" property="glueType" />
+        <result column="glue_source" property="glueSource" />
+        <result column="glue_remark" property="glueRemark" />
+        <result column="glue_updatetime" property="glueUpdatetime" />
+        <result column="child_jobid" property="childJobId" />
+        <result column="trigger_status" property="triggerStatus" />
+        <result column="trigger_last_time" property="triggerLastTime" />
+        <result column="trigger_next_time" property="triggerNextTime" />
+        <result column="handler_id" property="handlerId"/>
+        <result column="executor_name" property="executorName"/>
+        <result column="user_phone" property="userPhone"/>
+    </resultMap>
+
+    <select id="findAll" resultMap="XxlJobInfo">
+        select * from xxl_job_info
+    </select>
+
+</mapper>

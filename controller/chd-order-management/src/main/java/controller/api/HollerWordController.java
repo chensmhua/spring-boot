@@ -3,10 +3,8 @@ package controller.api;
 import com.chd.stater.MySpringBootStarter;
 import com.chd.stater.MySpringBootStarterConfiguration;
 import dao.entity.XxlJobInfo;
-import dao.mapper.XxlJobInfoMapper;
 import dao.repository.XxlJobInfoRepository;
 import dao.util.RedisUtil;
-import dao.vo.Person;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.Cacheable;
@@ -15,12 +13,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
 
 import javax.sql.DataSource;
 import java.sql.Connection;
 import java.sql.SQLException;
-import java.util.List;
 
 /**
  * @author ：huadong.chen

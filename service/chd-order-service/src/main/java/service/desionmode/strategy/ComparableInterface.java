@@ -12,5 +12,5 @@ package service.desionmode.strategy;
  */
 public interface ComparableInterface<T> {
 
-    int comparator(T o1,T o2);
+    int comparator(T o1, T o2);
 }
