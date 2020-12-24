@@ -7,6 +7,7 @@
         <module>controller</module>
         <module>domain</module>
         <module>service</module>
+        <module>job-task</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>
