@@ -50,12 +50,12 @@
             <version>1.2.10</version>
         </dependency>
 
-        <!-- 引入自定义starter  -->
-        <dependency>
-            <groupId>com.chd.starter</groupId>
-            <artifactId>chd-spring-boot-starter</artifactId>
-            <version>1.0-SNAPSHOT</version>
-        </dependency>
+<!--        &lt;!&ndash; 引入自定义starter  &ndash;&gt;-->
+<!--        <dependency>-->
+<!--            <groupId>com.chd.starter</groupId>-->
+<!--            <artifactId>chd-spring-boot-starter</artifactId>-->
+<!--            <version>1.0-SNAPSHOT</version>-->
+<!--        </dependency>-->
 
         <dependency>
             <groupId>com.baomidou</groupId>
