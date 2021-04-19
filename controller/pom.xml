@@ -13,6 +13,7 @@
     <modules>
         <module>chd-order-management</module>
         <module>chd-product-management</module>
+        <module>kafka-mq</module>
     </modules>
 
     <artifactId>controller</artifactId>
