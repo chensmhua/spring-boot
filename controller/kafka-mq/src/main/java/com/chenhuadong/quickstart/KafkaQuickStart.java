@@ -1,11 +1,16 @@
 package com.chenhuadong.quickstart;
 
 import org.apache.kafka.clients.consumer.ConsumerConfig;
+import org.apache.kafka.clients.consumer.ConsumerRecord;
+import org.apache.kafka.clients.consumer.ConsumerRecords;
 import org.apache.kafka.clients.consumer.KafkaConsumer;
 import org.apache.kafka.common.TopicPartition;
 import org.apache.kafka.common.serialization.StringDeserializer;
+import org.springframework.util.CollectionUtils;
 
+import java.time.Duration;
 import java.util.Arrays;
+import java.util.Iterator;
 import java.util.Properties;
 
 /**
@@ -29,9 +34,34 @@ public class KafkaQuickStart {
 
         KafkaConsumer<String, String> consumer = new KafkaConsumer<>(properties);
 
-        TopicPartition partition = new TopicPartition("topic01", 1);
+        TopicPartition partition = new TopicPartition("topic03", 1);
 
         consumer.assign(Arrays.asList(partition));
+
+        //指定分区消费数据
+        consumer.seek(new TopicPartition("topic03",1),1);
+
+        //遍历消费消息
+        while (true){
+            ConsumerRecords<String, String> consumerRecords = consumer.poll(Duration.ofSeconds(1));
+            if (!consumerRecords.isEmpty()){
+                Iterator<ConsumerRecord<String, String>> iterator = consumerRecords.iterator();
+                while (iterator.hasNext()){
+                    //获取第一个消息进行消费
+                    ConsumerRecord<String, String> next = iterator.next();
+
+                    String topic = next.topic();
+                    int partition1 = next.partition();
+                    long offset = next.offset();
+
+                    String key = next.key();
+                    String value = next.value();
+                    long timestamp = next.timestamp();
+
+                    System.out.println(topic+"=="+partition1+"=="+offset+"=="+key+"=="+value+"=="+timestamp);
+                }
+            }
+        }
 
 
     }

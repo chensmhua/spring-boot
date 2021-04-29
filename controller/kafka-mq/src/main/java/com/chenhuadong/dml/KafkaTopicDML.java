@@ -26,7 +26,7 @@ public class KafkaTopicDML {
         //申请连接
         AdminClient adminClient = KafkaAdminClient.create(properties);
         //异步创建topic
-        CreateTopicsResult createTopicsResult = adminClient.createTopics(Arrays.asList(new NewTopic("topic03", 1, (short) 1)));
+        CreateTopicsResult createTopicsResult = adminClient.createTopics(Arrays.asList(new NewTopic("topic04", 1, (short) 1)));
         //获取异步执行结果，可以作为同步机制
         createTopicsResult.all().get();
 
